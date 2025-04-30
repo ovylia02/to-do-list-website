@@ -15,12 +15,24 @@
         <link rel="stylesheet" href="style.css" />
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body>
+    <body class="h-screen flex items-center justify-center">
         <!--LOGIN SCREEN-->
+        <div id="loginScreen" class="text-center space-y-6">
+            <h1 class="text-6xl font-bold">🐹 Your To-Do List Companion 🐹</h1>
+            <button onclick="transition()" class="px-10 py-4 text-xl bg-[#bde0fe] hover:bg-[#a2d2ff] rounded-xl shadow-md">Let's Begin!</button>
+        </div>
+        
         <!--MAIN SCREEN-->
+        <div id="mainScreen" class="hidden">
+            <p>Hello world</p>
+        </div>
+
         <!--JAVASCRIPT-->
         <script>
-            
+            function transition() {
+                document.getElementById("loginScreen").classList.add("hidden");
+                document.getElementById("mainScreen").classList.remove("hidden");
+            }
         </script>
     </body>
 </html>
