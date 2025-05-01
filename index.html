@@ -15,16 +15,32 @@
         <link rel="stylesheet" href="style.css" />
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body class="h-screen flex items-center justify-center">
+    <body>
         <!--LOGIN SCREEN-->
-        <div id="loginScreen" class="text-center space-y-6">
+        <div id="loginScreen" class="text-center space-y-6 h-screen flex items-center justify-center flex-col">
             <h1 class="text-6xl font-bold">🐹 Your To-Do List Companion 🐹</h1>
             <button onclick="transition()" class="px-10 py-4 text-xl bg-[#bde0fe] hover:bg-[#a2d2ff] rounded-xl shadow-md">Let's Begin!</button>
         </div>
         
         <!--MAIN SCREEN-->
-        <div id="mainScreen" class="hidden">
-            <p>Hello world</p>
+        <div id="mainScreen" class="hidden min-h-screen flex flex-col items-center p-8">
+            <!--heading-->
+            <h1 class="text-4xl font-bold mb-10">your to-do list</h1>
+
+            <!--task container-->
+            <div class="w-full max-w-3xl bg-[#D8F3DC] rounded-2xl shadow-xl p-6 relative h-[500px] flex flex-col">
+                <!--CREATE - ADD BUTTON-->
+                <div class="flex justify-end mb-4">
+                    <button class="bg-[#bde0fe] hover:bg-[#a2d2ff] font-semibold px-5 py-2 rounded-xl shadow">
+                        + Add Task
+                    </button>
+                </div>
+
+                <!--READ - TASK LIST AREA-->
+                <div class="flex-grow overflow-y-auto flex items-center justify-center text-lg">
+                    No tasks available for now! 💤
+                </div>
+            </div>
         </div>
 
         <!--JAVASCRIPT-->
