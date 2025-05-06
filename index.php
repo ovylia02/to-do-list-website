@@ -19,7 +19,7 @@
         <!--LOGIN SCREEN-->
         <div id="loginScreen" class="text-center space-y-6 h-screen flex items-center justify-center flex-col">
             <h1 class="text-6xl font-bold">🐹 Your To-Do List Companion 🐹</h1>
-            <button onclick="transition()" class="px-10 py-4 text-xl bg-[#bde0fe] hover:bg-[#a2d2ff] rounded-xl shadow-md">Let's Begin!</button>
+            <button onclick="transition()" class="px-10 py-4 text-xl bg-[#bde0fe] hover:bg-[#a2d2ff] rounded-xl shadow-md">LOGIN</button>
         </div>
         
         <!--MAIN SCREEN-->
@@ -45,19 +45,19 @@
 
         <!--CREATE POPUP BOX-->
         <div id="createPopupBox" class="hidden fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-50">
-            <div class="bg-white rounded-2xl p-6 w-96 shadow-xl space-y-4">
+            <form action="create.php" method="POST" class="bg-white rounded-2xl p-6 w-96 shadow-xl space-y-4">
                 <!--prompt-->
                 <h2 class="text-2xl font-bold text-center">
                     What do you wanna do?
                 </h2>
 
                 <!--input task-->
-                <input type="text" placeholder="Enter your task here..." class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200" />
+                <input name="task" type="text" placeholder="Enter your task here..." class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200" />
                 
                 <!--choose priority level-->
                 <div class="space-y-1">
                     <label class="block font-medium">Priority level?</label>
-                    <div class="flex gap-4">
+                    <div name="priority" class="flex gap-4">
                         <label><input type="radio" name="priority" value="least" /> Least</label>
                         <label><input type="radio" name="priority" value="neutral" /> Neutral</label>
                         <label><input type="radio" name="priority" value="high" /> High</label>
@@ -66,23 +66,26 @@
 
                 <!--cancel button + submit button-->
                 <div class="flex justify-end gap-4 pt-4">
-                    <button onclick="closeCreatePopup()" class="px-4 py-2 rounded-xl bg-gray-300 hover:bg-gray-400">Cancel</button>
-                    <button onclick="" class="px-4 py-2 rounded-xl bg-[#bde0fe] hover:bg-[#a2d2ff]">Add</button>
+                    <button type="button" onclick="closeCreatePopup()" class="px-4 py-2 rounded-xl bg-gray-300 hover:bg-gray-400">Cancel</button>
+                    <button type="submit" class="px-4 py-2 rounded-xl bg-[#bde0fe] hover:bg-[#a2d2ff]">Add</button>
                 </div>
-            </div>
+            </form>
         </div>
 
         <!--JAVASCRIPT-->
         <script>
+            // Enter dashboard
             function transition() {
                 document.getElementById("loginScreen").classList.add("hidden");
                 document.getElementById("mainScreen").classList.remove("hidden");
             }
 
+            // Open - Popup boxes
             function openCreatePopup() {
                 document.getElementById("createPopupBox").classList.remove("hidden");
             }
 
+            // Close - Popup boxes
             function closeCreatePopup() {
                 document.getElementById("createPopupBox").classList.add("hidden");
             }
