@@ -1,3 +1,17 @@
+<?php
+// Connect to database
+include 'db.php';
+
+// READ functionality
+$taskTable = $connection->query("SELECT * FROM tasks ORDER BY id DESC");
+$taskList = [];
+if ($taskTable && $taskTable->num_rows > 0) {
+    while ($row = $taskTable->fetch_assoc()) {
+        $taskList[] = $row;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -31,8 +45,35 @@
                 </div>
 
                 <!--task list area-->
-                <div class="flex-grow overflow-y-auto flex items-center justify-center text-lg">
-                    No tasks available for now! 💤
+                <div class="flex-grow overflow-y-auto space-y-5">
+                    <!--no tasks-->
+                    <?php if (empty($taskList)): ?>
+                        <div class="text-center text-lg">No tasks available for now! 💤</div>
+
+                    <!--have tasks-->
+                    <?php else: ?>
+                        <?php foreach($taskList as $task): ?>
+                            <?php
+                            // Priority coding
+                            $priority = $task['priority'];
+                            $priorityCoding = ['least' => '#e9c46a', 'neutral' => '#f4a261', 'high' => '#e76f51'];
+                            $priorityColor = $priorityCoding[$priority];
+                            ?>
+
+                            <div class="flex items-center justify-between bg-white rounded-xl shadow p-4 border-l-8" style="border-color: <?= $priorityColor ?>;">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" class="w-5 h-5 accent-green-500" />
+                                    <div class="text-lg font-medium">
+                                        <?= htmlspecialchars($task['task']) ?>
+                                    </div>
+                                </div>
+                                <span class="text-sm font-semibold px-3 py-1 rounded-full text-white" style="background-color: <?= $priorityColor ?>;">
+                                    <?= ucfirst($priority) ?>
+                                </span>
+                            </div>
+                        <?php endforeach; ?>
+
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -80,3 +121,8 @@
         </script>
     </body>
 </html>
+
+<?php
+// Disconnect from database
+$connection->close();
+?>
