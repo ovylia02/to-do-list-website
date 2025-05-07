@@ -15,17 +15,11 @@
         <link rel="stylesheet" href="style.css" />
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body>
-        <!--LOGIN SCREEN-->
-        <div id="loginScreen" class="text-center space-y-6 h-screen flex items-center justify-center flex-col">
-            <h1 class="text-6xl font-bold">🐹 Your To-Do List Companion 🐹</h1>
-            <button onclick="transition()" class="px-10 py-4 text-xl bg-[#bde0fe] hover:bg-[#a2d2ff] rounded-xl shadow-md">LOGIN</button>
-        </div>
-        
+    <body>        
         <!--MAIN SCREEN-->
-        <div id="mainScreen" class="hidden min-h-screen flex flex-col items-center p-8">
+        <div id="mainScreen" class="min-h-screen flex flex-col items-center p-8">
             <!--heading-->
-            <h1 class="text-4xl font-bold mb-10">your to-do list</h1>
+            <h1 class="text-4xl font-bold mb-10">🐹 Your To-Do List Companion 🐹</h1>
 
             <!--task container-->
             <div class="w-full max-w-3xl bg-[#D8F3DC] rounded-2xl shadow-xl p-6 relative h-[500px] flex flex-col">
@@ -74,12 +68,6 @@
 
         <!--JAVASCRIPT-->
         <script>
-            // Enter dashboard
-            function transition() {
-                document.getElementById("loginScreen").classList.add("hidden");
-                document.getElementById("mainScreen").classList.remove("hidden");
-            }
-
             // Open - Popup boxes
             function openCreatePopup() {
                 document.getElementById("createPopupBox").classList.remove("hidden");
