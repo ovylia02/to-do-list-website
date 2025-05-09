@@ -4,8 +4,8 @@ include 'db.php';
 
 // CREATE functionality
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $task = $_POST['task'] ?? '';
-    $priority = $_POST['priority'] ?? 'neutral';
+    $task = $_POST['createTask'] ?? '';
+    $priority = $_POST['createPriority'] ?? 'neutral';
 
     $insert = $connection->prepare("INSERT INTO tasks (task, priority, done) VALUES (?, ?, 0)");
     $insert->bind_param("ss", $task, $priority);
