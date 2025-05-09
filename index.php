@@ -64,7 +64,7 @@ if ($taskTable && $taskTable->num_rows > 0) {
                                 <input type="checkbox" class="mt-2 w-5 h-5 accent-green-500 shrink-0" />
 
                                 <!--task box-->
-                                <div onclick="openUpdatePopup()" class="w-full cursor-pointer flex items-center justify-between bg-white rounded-xl shadow p-4 border-l-8 hover:shadow-md transition" style="border-color: <?= $priorityColor ?>;">
+                                <div onclick="openUpdatePopup('<?= $task['id'] ?>', '<?= $task['task'] ?>', '<?= $task['priority'] ?>')" class="w-full cursor-pointer flex items-center justify-between bg-white rounded-xl shadow p-4 border-l-8 hover:shadow-md transition" style="border-color: <?= $priorityColor ?>;">
                                     <!--task description-->
                                     <div class="flex items-center gap-3 text-lg font-medium w-full">
                                         <?= htmlspecialchars($task['task']) ?>
@@ -113,11 +113,14 @@ if ($taskTable && $taskTable->num_rows > 0) {
         <!--UPDATE POPUP BOX-->
         <div id="updatePopupBox" class="hidden fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-50">
             <form action="update.php" method="POST" class="bg-white rounded-2xl p-6 w-96 shadow-xl space-y-4">
+                <!--gain task id-->
+                <input id="updateId" name="updateId" type="hidden" />
+            
                 <!--update prompt-->
                 <h2 class="text-2xl font-bold text-center">Update this task here!</h2>
 
                 <!--edit task-->
-                <input name="updateTask" type="text" class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200" />
+                <input id="updateTask" name="updateTask" type="text" class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200" />
             
                 <!--edit priority level-->
                 <div class="space-y-1">
@@ -149,8 +152,11 @@ if ($taskTable && $taskTable->num_rows > 0) {
             }
 
             // UPDATE POPUP BOX JS
-            function openUpdatePopup() {
+            function openUpdatePopup(id, task, priority) {
                 document.getElementById("updatePopupBox").classList.remove("hidden");
+                document.getElementById("updateId").value = id;
+                document.getElementById("updateTask").value = task;
+                document.querySelector(`input[name='updatePriority'][value='${priority}']`).checked = true;
             }
 
             function closeUpdatePopup() {

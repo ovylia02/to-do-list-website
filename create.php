@@ -3,7 +3,7 @@
 include 'db.php';
 
 // CREATE functionality
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $task = $_POST['createTask'] ?? '';
     $priority = $_POST['createPriority'] ?? 'neutral';
 
