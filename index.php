@@ -95,6 +95,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['doneId'])) {
                     <?php endif; ?>
                 </div>
             </div>
+            
+            <!--credits-->
+            <div class="mt-auto text-center mb-5 text-sm text-white font-semibold">
+                🐰 made by ovylia 🐰
+            </div>
         </div>
 
         <!--CREATE POPUP BOX-->
