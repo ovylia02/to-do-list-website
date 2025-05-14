@@ -1,7 +1,7 @@
 # 📖 To-Do List Website
 
 A simple and cozy to-do list website built using HTML, CSS (tailwind), PHP, and MySQL.
-It helps you organise tasks by priority and edit and delete however you want!
+It helps you organise tasks by priority and you can edit and delete however you want!
 
 ## 📸 Preview
 
@@ -11,10 +11,10 @@ It helps you organise tasks by priority and edit and delete however you want!
 
 ## ✨ Features
 
-- Add new tasks to the list with the priority level
-- Make any changes to any tasks' description and/or priority level
-- Delete any task
-- Check any tasks as done
+- Add new tasks to your list! You can organise them by priority 📚
+- Make any changes to task description and priority level ✍️
+- Delete any task you don't wanna see anymore 🫠
+- Mark tasks as completed 🥳
 
 ## ⚙️ Technical Things
 
