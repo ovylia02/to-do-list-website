@@ -104,14 +104,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['doneId'])) {
                 <h2 class="text-2xl font-bold text-center">What do you wanna do?</h2>
 
                 <!--input task-->
-                <input name="createTask" type="text" placeholder="Enter your task here..." class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200" />
+                <input name="createTask" type="text" placeholder="Enter your task here..." class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e7c6ff]" />
                 
                 <!--choose priority level-->
                 <div class="space-y-1">
                     <label class="block font-medium">Priority level?</label>
                     <div name="createPriority" class="flex gap-4">
-                        <label><input type="radio" name="createPriority" value="least" /> Least</label>
-                        <label><input type="radio" name="createPriority" value="neutral" /> Neutral</label>
+                        <label><input type="radio" name="createPriority" value="least" /> Low</label>
+                        <label><input type="radio" name="createPriority" value="neutral" /> Medium</label>
                         <label><input type="radio" name="createPriority" value="high" /> High</label>
                     </div>
                 </div>
@@ -119,7 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['doneId'])) {
                 <!--cancel and add button-->
                 <div class="flex justify-end gap-4 pt-4">
                     <button type="button" onclick="closeCreatePopup()" class="px-4 py-2 rounded-xl bg-gray-300 hover:bg-gray-400">Cancel</button>
-                    <button type="submit" class="px-4 py-2 rounded-xl bg-[#bde0fe] hover:bg-[#a2d2ff]">Add</button>
+                    <button type="submit" class="px-4 py-2 rounded-xl bg-[#e7c6ff] hover:bg-[#c8b6ff]">Add</button>
                 </div>
             </form>
         </div>
@@ -140,9 +140,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['doneId'])) {
                 <div class="space-y-1">
                     <label class="block font-medium">Change priority level?</label>
                     <div name="updatePriority" class="flex gap-4">
-                        <label><input type="radio" name="updatePriority" value="least" /> Least</label>
-                        <label><input type="radio" name="updatePriority" value="neutral" /> Neutral </label>
-                        <label><input type="radio" name="updatePriority" value="high" /> High </label>
+                        <label><input type="radio" name="updatePriority" value="least" /> Low</label>
+                        <label><input type="radio" name="updatePriority" value="neutral" /> Medium</label>
+                        <label><input type="radio" name="updatePriority" value="high" /> High</label>
                     </div>
                 </div>
 
