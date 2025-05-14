@@ -5,11 +5,16 @@ It helps you organise tasks by priority and edit and delete however you want!
 
 ## 📸 Preview
 
-Coming soon! 👀
+![Dashboard view](demo-media/dashboard.png)
+
+🎥 [Watch the demo video here~](demo-media/demo.mp4)
 
 ## ✨ Features
 
-Coming soon! 👀
+- Add new tasks to the list with the priority level
+- Make any changes to any tasks' description and/or priority level
+- Delete any task
+- Check any tasks as done
 
 ## ⚙️ Technical Things
 
