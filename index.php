@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['doneId'])) {
                                 <input type="checkbox" <?= $task['done'] ? 'checked' : '' ?> onchange="updateDone(this, <?= $task['id'] ?>)" class="mt-2 w-5 h-5 accent-green-500 shrink-0" />
 
                                 <!--task box-->
-                                <div onclick="openUpdatePopup('<?= $task['id'] ?>', '<?= $task['task'] ?>', '<?= $task['priority'] ?>')" class="w-full cursor-pointer flex items-center justify-between bg-white rounded-xl shadow p-4 border-l-8 hover:shadow-md transition" style="border-color: <?= $priorityColor ?>;">
+                                <div onclick="openUpdatePopup('<?= $task['id'] ?>', '<?= $task['task'] ?>', '<?= $task['priority'] ?>')" class="w-full cursor-pointer flex items-center justify-between bg-white rounded-xl shadow-md p-4 border-l-8 hover:shadow-xl transition" style="border-color: <?= $priorityColor ?>;">
                                     <!--task description-->
                                     <div class="flex items-center gap-3 text-lg font-medium w-full">
                                         <?= htmlspecialchars($task['task']) ?>
@@ -131,10 +131,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['doneId'])) {
                 <input id="updateId" name="updateId" type="hidden" />
             
                 <!--update prompt-->
-                <h2 class="text-2xl font-bold text-center">Update this task here!</h2>
+                <h2 class="text-2xl font-bold text-center">Any changes?</h2>
 
                 <!--edit task-->
-                <input id="updateTask" name="updateTask" type="text" class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200" />
+                <input id="updateTask" name="updateTask" type="text" class="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ffcad4]" />
             
                 <!--edit priority level-->
                 <div class="space-y-1">
@@ -149,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['doneId'])) {
                 <!--cancel and update button-->
                 <div class="flex justify-end gap-4 pt-4">
                     <button type="button" onclick="closeUpdatePopup()" class="px-4 py-2 rounded-xl bg-gray-300 hover:bg-gray-400">Cancel</button>
-                    <button type="submit" class="px-4 py-2 rounded-xl bg-[#bde0fe] hover:bg-[#a2d2ff]">Update</button>
+                    <button type="submit" class="px-4 py-2 rounded-xl bg-[#ffcad4] hover:bg-[#f4acb7]">Update</button>
                     <button type="button" onclick="openDeletePopup()" class="px-4 py-2 rounded-xl bg-red-500 text-white hover:bg-red-600">Delete</button>
                 </div>
             </form>
