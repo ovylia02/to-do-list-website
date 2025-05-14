@@ -10,6 +10,20 @@ if ($taskTable && $taskTable->num_rows > 0) {
         $taskList[] = $row;
     }
 }
+
+// UPDATE (done) functionality
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['doneId'])) {
+    $id = $_POST['doneId'];
+    $done = $_POST['done'] == '1' ? 1 : 0;
+
+    $update = $connection->prepare("UPDATE tasks SET done = ? WHERE id = ?");
+    $update->bind_param("ii", $done, $id);
+
+    $update->execute();
+    $update->close();
+
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +75,7 @@ if ($taskTable && $taskTable->num_rows > 0) {
                             <!--each task-->
                             <div class="flex items-start gap-4">
                                 <!--done checkbox-->
-                                <input type="checkbox" class="mt-2 w-5 h-5 accent-green-500 shrink-0" />
+                                <input type="checkbox" <?= $task['done'] ? 'checked' : '' ?> onchange="updateDone(this, <?= $task['id'] ?>)" class="mt-2 w-5 h-5 accent-green-500 shrink-0" />
 
                                 <!--task box-->
                                 <div onclick="openUpdatePopup('<?= $task['id'] ?>', '<?= $task['task'] ?>', '<?= $task['priority'] ?>')" class="w-full cursor-pointer flex items-center justify-between bg-white rounded-xl shadow p-4 border-l-8 hover:shadow-md transition" style="border-color: <?= $priorityColor ?>;">
@@ -161,6 +175,12 @@ if ($taskTable && $taskTable->num_rows > 0) {
 
             function closeUpdatePopup() {
                 document.getElementById("updatePopupBox").classList.add("hidden");
+            }
+
+            // UPDATE DONE
+            function updateDone(checkbox, id) {
+                const doneState = checkbox.checked ? '1' : '0';
+                fetch('', {method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: `doneId=${id}&done=${doneState}`});
             }
         </script>
     </body>
