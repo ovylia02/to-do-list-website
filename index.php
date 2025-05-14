@@ -45,15 +45,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['doneId'])) {
     </head>
     <body>        
         <!--DASHBOARD-->
-        <div class="min-h-screen flex flex-col items-center p-8">
+        <div class="min-h-screen flex flex-col items-center p-8 bg-[#dda15e]">
             <!--application name-->
-            <h1 class="text-4xl font-bold mb-10">🐹 Your To-Do List Companion 🐹</h1>
+            <h1 class="text-4xl font-bold mb-10 text-white">what should i do today?</h1>
 
             <!--to-do list-->
-            <div class="w-full max-w-3xl bg-[#D8F3DC] rounded-2xl shadow-xl p-6 relative h-[500px] flex flex-col">
+            <div class="w-full max-w-3xl bg-[#fefae0] rounded-2xl p-6 relative h-[500px] flex flex-col">
                 <!--add task button-->
                 <div class="flex justify-end mb-4">
-                    <button onclick="openCreatePopup()" class="bg-[#bde0fe] hover:bg-[#a2d2ff] font-semibold px-5 py-2 rounded-xl shadow">+ Add Task</button>
+                    <button onclick="openCreatePopup()" class="text-white bg-[#606c38] hover:bg-[#283618] font-semibold px-5 py-2 rounded-xl shadow-xl">+</button>
                 </div>
 
                 <!--task list area-->
