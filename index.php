@@ -150,6 +150,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['doneId'])) {
                 <div class="flex justify-end gap-4 pt-4">
                     <button type="button" onclick="closeUpdatePopup()" class="px-4 py-2 rounded-xl bg-gray-300 hover:bg-gray-400">Cancel</button>
                     <button type="submit" class="px-4 py-2 rounded-xl bg-[#bde0fe] hover:bg-[#a2d2ff]">Update</button>
+                    <button type="button" onclick="openDeletePopup()" class="px-4 py-2 rounded-xl bg-red-500 text-white hover:bg-red-600">Delete</button>
+                </div>
+            </form>
+        </div>
+
+        <!--DELETE POPUP BOX-->
+        <div id="deletePopupBox" class="hidden fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex items-center justify-center z-50">
+            <form action="delete.php" method="POST" class="bg-white rounded-2xl p-6 w-96 shadow-xl space-y-4">
+                <!--gain task id-->
+                <input id="deleteId" name="deleteId" type="hidden" />
+
+                <!--delete prompt-->
+                <h2 class="text-2xl font-bold text-center">Are you sure?</h2>
+
+                <!--confirmation buttons-->
+                <div class="flex justify-center gap-4 pt-4">
+                    <button type="submit" class="px-4 py-2 rounded-xl bg-red-500 text-white hover:bg-red-600">Yes</button>
+                    <button type="button" onclick="closeDeletePopup()" class="px-4 py-2 rounded-xl bg-gray-300 hover:bg-gray-400">No</button>
                 </div>
             </form>
         </div>
@@ -181,6 +199,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['doneId'])) {
             function updateDone(checkbox, id) {
                 const doneState = checkbox.checked ? '1' : '0';
                 fetch('', {method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: `doneId=${id}&done=${doneState}`});
+            }
+
+            // DELETE POPUP BOX JS
+            function openDeletePopup() {
+                const id = document.getElementById("updateId").value;
+                document.getElementById("deleteId").value = id;
+                document.getElementById("updatePopupBox").classList.add("hidden");
+                document.getElementById("deletePopupBox").classList.remove("hidden");
+            }
+
+            function closeDeletePopup() {
+                document.getElementById("deletePopupBox").classList.add("hidden");
+                document.getElementById("updatePopupBox").classList.remove("hidden");
             }
         </script>
     </body>
