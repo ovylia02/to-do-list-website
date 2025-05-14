@@ -1,4 +1,4 @@
-# 📖 To-Do List Website (🛠️ in development 🛠️)
+# 📖 To-Do List Website
 
 A simple and cozy to-do list website built using HTML, CSS (tailwind), PHP, and MySQL.
 It helps you organise tasks by priority and edit and delete however you want!
@@ -7,7 +7,7 @@ It helps you organise tasks by priority and edit and delete however you want!
 
 ![Dashboard view](demo-media/dashboard.png)
 
-🎥 [Watch the demo video here~](demo-media/demo.mp4)
+🎥 [Watch the demo video here~](https://youtu.be/tSQOEdSzOs0)
 
 ## ✨ Features
 
